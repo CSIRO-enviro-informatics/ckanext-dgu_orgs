@@ -1,0 +1,39 @@
+{% extends "page.html" %}
+{% import "_dgu_jinja_util.html" as m with context %}
+
+{% block title %}Organization Report - {{ super() }}{% endblock %}
+
+  <h1>Organization Report</h1>
+
+
+{% block breadcrumb_content %}
+    <li><a href="/data/system_dashboard">System Dashboard</a></li>
+    <li><a href="/organisation/report_users_not_assigned_to_groups">Users not assigned to groups</a></li>
+{% endblock %}
+
+
+{% block primary_content_inner %}
+  <div>
+
+      <h3>Users not attached to a organisation ({{ c.unassigned_users_count }})</h3>
+      {% if c.unassigned_users_count > 0 %}
+      <table id="users" py:if="" width="100%" class="table table-bordered">
+        <tr>
+          <th>Full Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Created</th>
+        </tr>
+        <py:for each="">
+        {% for user in c.unassigned_users %}
+          <tr>
+            <td>{{user.fullname}}</td>
+            <td><a href="{{h.url_for(controller='user', action='read', id=user.name)}}">{{"OPENID" if user.name.startswith('http') else user.name}}</a></td>
+            <td><a href="mailto:{{user.email}}">{{user.email}}</a></td>
+            <td><nobr>{{h.render_datetime(user.created, date_format="%d-%m-%Y")}}</nobr></td>
+          </tr>
+        {% endfor %}
+      </table>
+      {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+
+{% block title %}{{c.group.title or c.group.name}} - Edit - Organization{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ h.build_nav('organisation_index', _('Organizations')) }}
+  {{ h.build_nav('organisation_read', c.group.title, id=c.group.name) }}
+  {{ h.build_nav('organisation_edit', _('Edit'), id=c.group.name) }}
+{% endblock %}
+
+
+{% block primary_content_inner %}
+    <h1>Edit Organization <small>{{c.group.title}}</small></h1>
+
+    {{c.form|safe}}
+{% endblock %}

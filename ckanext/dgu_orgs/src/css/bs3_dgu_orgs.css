@@ -1,0 +1,331 @@
+/* Search box DGU-style */
+.search-area .left {
+  width: 73%;
+}
+.search-area .right {
+  width: 27%;
+}
+/* PAGE: Publisher/read */
+/* -------------------- */
+body.controller-organisation.action-read #organisation-extra-options {
+  margin: 0 0 0 14px;
+  font-weight: normal;
+  font-size: 11px;
+  color: #999;
+  line-height: 18px;
+}
+body.controller-organisation.action-read .organisation-dropdown {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+/* PAGE: Publisher/index */
+/* -------------------- */
+body.controller-organisation.action-index table.groups th {
+  text-align: left;
+}
+body.controller-organisation.action-index .pagination-alphabet a {
+  padding: 0 5px;
+}
+/* PAGE: Publisher/edit */
+/* -------------------- */
+body.controller-organisation.action-edit hr.extras-divider {
+  border: none;
+  border-bottom: 1px dashed #ddd;
+  width: 65%;
+}
+body.controller-organisation.action-edit span.extras-label {
+  display: inline-block;
+  min-width: 50px;
+  text-align: right;
+}
+/* PAGE: Publisher/read */
+/* -------------------- */
+body.controller-organisation.action-read .organisation-mini-tree {
+  overflow: auto;
+  overflow-x: hidden;
+  -ms-overflow-x: hidden;
+  /*IE 8 only*/
+  max-height: 250px;
+}
+/* organisation hierarchy */
+.alphabet-search {
+  margin-top: 7px;
+  margin-bottom: -6px;
+  margin-left: -6px;
+}
+.alphabet-search .pagination-alphabet {
+  margin: 0 0 0 0;
+  margin-bottom: -6px;
+}
+.alphabet-search ul {
+  display: inline;
+  margin: 0 0 0 0;
+  list-style-type: none;
+  padding: 0 0 0 0;
+}
+.alphabet-search li {
+  display: inline;
+}
+.alphabet-search a {
+  display: block;
+  float: left;
+  padding: 5px 4px;
+  border: 1px solid #f0f0f0;
+  border-left: none;
+  margin-bottom: -1px;
+  text-align: center;
+  color: #ccc;
+  min-width: 26px;
+}
+@media (max-width: 767px) {
+  .alphabet-search a {
+    min-width: 25px;
+  }
+}
+@media (max-width: 991px) {
+  .alphabet-search a {
+    min-width: 19px;
+  }
+}
+@media (min-width: 1200px) {
+  .alphabet-search a {
+    min-width: 32px;
+  }
+}
+.alphabet-search a:hover,
+.alphabet-search .active a {
+  color: #000;
+  background: #f7f7f7;
+  text-decoration: none;
+}
+.organisation-hierarchy .organisation {
+  display: none;
+  position: relative;
+}
+.organisation-hierarchy .organisation > .js-expand,
+.organisation-hierarchy .organisation > .js-collapse {
+  display: none;
+  position: absolute;
+  left: 9px;
+  top: 5px;
+}
+.organisation-hierarchy .organisation .organisation-row {
+  background: #F4F4F4;
+  margin-bottom: 4px;
+  padding: 6px 20px 6px 48px;
+}
+.organisation-hierarchy .organisation .organisation-row a {
+  color: #444;
+}
+.organisation-hierarchy .organisation .organisation-row.closed a {
+  color: #999;
+}
+.organisation-hierarchy .organisation .organisation-row.active {
+  background: #d3d3d3;
+}
+.organisation-hierarchy .organisation .organisation-row.closed {
+  color: #999;
+}
+.organisation-hierarchy .organisation .organisation {
+  margin-left: 5%;
+}
+.organisation-hierarchy .organisation.childmatch {
+  display: block;
+}
+.organisation-hierarchy .organisation.match {
+  display: block;
+}
+.organisation-hierarchy .organisation.match .organisation-row {
+  background: #fff;
+}
+.organisation-hierarchy .organisation.match .organisation-row .highlight {
+  background: #cfc;
+}
+.organisation-hierarchy.empty-search .organisation {
+  display: block;
+}
+.organisation-hierarchy.empty-search .organisation.collapsed > .js-expand {
+  display: inline-block;
+}
+.organisation-hierarchy.empty-search .organisation.collapsed > .organisation {
+  display: none;
+}
+.organisation-hierarchy.empty-search .organisation.expanded > .js-collapse {
+  display: inline-block;
+}
+.organisation-hierarchy.empty-search .organisation.expanded > .organisation {
+  display: block;
+}
+.organisation-hierarchy.empty-search .organisation .organisation .highlight {
+  background: none;
+}
+#organisation-tree {
+  /* publisher/index and publisher/read */
+  background-color: white;
+}
+#organisation-tree .jstree ul {
+  list-style-image: none;
+}
+/* From DGU Theme */
+/* Note, take out into our own theme. */
+.search-area .mini button,
+.search-area .mini input[type="text"] {
+  box-shadow: none !important;
+}
+.search-area .left {
+  float: left;
+}
+.search-area .left .left-inner {
+  background: #fff;
+  padding: 6px;
+  min-height: 90px;
+}
+@media (max-width: 767px) {
+  .search-area .left .left-inner {
+    border: 1px solid #a2a2a2;
+    border-right-width: 0;
+  }
+}
+@media (max-width: 767px) {
+  .search-area .left .left-inner {
+    min-height: 64px;
+  }
+}
+.search-area .left .left-inner button,
+.search-area .left .left-inner input[type="text"] {
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 0;
+  box-shadow: none!important;
+  height: 50px;
+  font-size: 27px;
+}
+@media (max-width: 767px) {
+  .search-area .left .left-inner button,
+  .search-area .left .left-inner input[type="text"] {
+    font-size: 21px;
+  }
+}
+@media (max-width: 370px) {
+  .search-area .left .left-inner button,
+  .search-area .left .left-inner input[type="text"] {
+    font-size: 16px;
+  }
+}
+.search-area .left .left-inner i {
+  font-size: 25px;
+}
+.search-area .left .left-inner input[type="text"].loading {
+  background-image: url('/assets/img/ajax-loader.gif');
+  background-position: 97% 10px;
+  background-repeat: no-repeat;
+}
+@media (max-width: 500px) {
+  .search-area .left .left-inner input.form-control {
+    padding: 0;
+  }
+}
+.search-area .search-all-label {
+  color: #ccc;
+  margin: 5px 0 0 35px;
+}
+.search-area .right {
+  float: left;
+}
+.search-area .right .right-inner {
+  background: #a2a2a2;
+  color: #fff;
+  position: relative;
+  min-height: 90px;
+  padding: 6px;
+}
+@media (max-width: 767px) {
+  .search-area .right .right-inner {
+    border: 1px solid #a2a2a2;
+    border-left-width: 0;
+  }
+}
+@media (max-width: 767px) {
+  .search-area .right .right-inner {
+    min-height: 64px;
+  }
+}
+.search-area .right .right-inner .chevron {
+  border: 10px solid transparent;
+  border-left-color: #fff;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -10px;
+}
+.search-area .right .right-inner .result-count {
+  font-size: 40px;
+  text-align: center;
+  border: none!important;
+  line-height: 30px;
+  position: absolute;
+  bottom: 46%;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .search-area .right .right-inner .result-count {
+    font-size: 30px;
+  }
+}
+@media (max-width: 370px) {
+  .search-area .right .right-inner .result-count {
+    font-size: 21px;
+  }
+}
+.search-area .right .right-inner .result-count-footer {
+  text-align: center;
+  position: absolute;
+  top: 57%;
+  width: 100%;
+}
+.search-area .search #main-content .main-height-columns,
+.search-area .search #content .main-height-columns {
+  float: none;
+  display: table-cell;
+}
+.search-area .left {
+  width: 80%;
+}
+.search-area .right {
+  width: 20%;
+}
+@media (max-width: 768px) {
+  .search-area .left {
+    width: 75%;
+  }
+  .search-area .right {
+    width: 25%;
+  }
+}
+@media (max-width: 500px) {
+  .search-area .left {
+    width: 65%;
+  }
+  .search-area .right {
+    width: 35%;
+  }
+}
+.dgu-pagination {
+  text-align: center;
+}
+/*# sourceMappingURL=bs3_dgu_orgs.css.map */

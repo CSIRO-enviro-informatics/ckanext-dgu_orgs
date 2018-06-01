@@ -1,0 +1,22 @@
+{% extends "page.html" %}
+
+{% block title %}Apply{% endblock %}
+
+{% block breadcrumb_content %}
+    <li><a href="/organisation">Organizations</a></li>
+    {% if not c.group %}
+      <li><a href="/organisation/apply}">Apply for membership</a></li>
+    {% else %}
+      <li><a href="/organisation/{{c.group.name}}">{{c.group.display_name}}</a></li>
+      <li><a href="/organisation/apply/{{c.group.name}}">Apply for membership</a></li>
+    {% endif %}
+{% endblock%}
+
+{% block primary_content_inner %}
+<h1>Apply for membership</h1>
+  <div class="group-edit-form">
+    <div class="boxed">
+      {{c.form|safe}}
+    </div>
+  </div>
+{% endblock %}

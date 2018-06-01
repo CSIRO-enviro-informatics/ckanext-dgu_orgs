@@ -1,0 +1,51 @@
+{% extends "page.html" %}
+{% import "_dgu_jinja_util.html" as m with context %}
+
+{% block title %}Organization Report - {{ super() }}{% endblock %}
+
+  <h1>Organizations and Admins/Editors ({{c.count}})</h1>
+
+
+{% block breadcrumb_content %}
+    <li><a href="/data/system_dashboard">System Dashboard</a></li>
+    <li><a href="/organisation/report_organisations_and_users">Organizations and users</a></li>
+{% endblock %}
+
+
+{% block primary_content_inner %}
+  <div>
+
+      {{ m.paginator(c.page)}}
+
+      {% if c.count %}
+      <table  width="100%" class="table table-bordered">
+        <tr>
+          <th>Title</th>
+          <th>Number of datasets</th>
+          <th>Approval status</th>
+          <th>Administrators</th>
+          <th>Editors</th>
+          <th>Created</th>
+        </tr>
+        {% for g in c.page.items %}
+          <tr>
+            <td><a href="/organisation/{{g.name}}">{{g.title}}</a></td>
+            <td>{{ g.packages()|length }}</td>
+            <td>{{ g.approval_status }}</td>
+            {% for capacity in ('admin', 'editor') %}
+            <td>
+                {% for user in h.group_get_users(g, capacity=capacity) %}
+                  {{h.link_to(user.display_name, h.url_for(controller='user', action='read', id=user.name))}}{% if not loop.last %},{% endif%}
+                {% endfor %}
+            </td>
+            {% endfor %}
+            <td><nobr>{{h.render_datetime(g.created, date_format="%d-%m-%Y")}}</nobr></td>
+          </tr>
+          {% endfor %}
+      </table>
+      {% endif %}
+
+      {{ m.paginator(c.page) }}
+
+  </div>
+{% endblock %}

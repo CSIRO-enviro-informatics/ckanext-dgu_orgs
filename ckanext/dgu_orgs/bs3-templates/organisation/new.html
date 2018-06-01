@@ -1,0 +1,15 @@
+{% extends "page.html" %}
+
+{% block title %}New - Organization{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ h.build_nav('organisation_index', _('Organizations')) }}
+  {{ h.build_nav('organisation_new', _('New')) }}
+{% endblock %}
+
+
+{% block primary_content_inner %}
+    <h1>New Organization</h1>
+
+    {{c.form|safe}}
+{% endblock %}

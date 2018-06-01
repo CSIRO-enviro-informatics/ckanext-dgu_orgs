@@ -1,0 +1,28 @@
+{% extends "page.html" %}
+
+ {% block title %}Users in {{c.group.display_name}}{% endblock %}
+
+{% block breadcrumb_content %}
+    <li><a href="/organisation">Organizations</a></li>
+    <li><a href="/organisation/{{c.group.name}}">{{c.group.title}}</a></li>
+    <li><a href="{{request.url}}">Edit User Permissions</a></li>
+{% endblock %}
+
+{% block primary_content_inner %}
+  <h1>Edit User Permissions</h1>
+  <div class="user-edit-form">
+    <div class="boxed">
+      {{c.form|safe}}
+    </div>
+  </div>
+{% resource 'dgu_orgs/dgu-organisation-forms.js' %}
+{% endblock %}
+
+
+
+
+  <xi:include href="../layout.html" />
+
+</html>
+
+

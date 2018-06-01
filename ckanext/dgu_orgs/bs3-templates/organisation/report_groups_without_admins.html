@@ -1,0 +1,29 @@
+{% extends "page.html" %}
+
+{% block title %}New - Organization Report - {{ super() }}{% endblock %}
+
+  <h1>Organization report</h1>
+
+
+{% block breadcrumb_content %}
+    <li><a href="/data/system_dashboard">System Dashboard</a></li>
+    <li><a href="/organisation/report_groups_without_admins">Organizations without admins</a></li>
+{% endblock %}
+
+{% block primary_content_inner %}
+  <div>
+      <h3>Organizations without admins ({{ c.non_admin_count}})</h3>
+      {% if c.non_admin_count > 0 %}
+    <table id="admins"  class="table table-bordered">
+        <tr>
+          <th>Organization</th>
+        </tr>
+        {% for organisation in c.non_admin %}
+          <tr>
+            <td><a href="{{h.url_for(controller='ckanext.dgu_orgs.controllers.organisation:OrganisationController', action='users', id=organisation.name)}}">{{organisation.title}}</a></td>
+          </tr>
+        {% endfor %}
+      </table>
+      {% endif %}
+  </div>
+{% endblock %}
