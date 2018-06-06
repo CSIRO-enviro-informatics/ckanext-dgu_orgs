@@ -1,4 +1,4 @@
 include README.rst
 include LICENSE
 include requirements.txt
-recursive-include ckanext/dgu_orgs *.jpg *.jpeg *.gif *.png *.html *.json *.js *.less *.css *.mo resource.config
+recursive-include ckanext/dgu_orgs *.jpg *.jpeg *.gif *.png *.html *.json *.js *.js.map *.less *.css *.css.map *.mo resource.config

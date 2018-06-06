@@ -188,7 +188,7 @@
 {% endmacro %}
 
 {% macro map_preview_button_direct(pkg_dict,small=True) %}
-    <a href="/data/map-preview?{{h.get_wms_info_urls(pkg_dict)}}{{'&amp;n=%s&amp;w=%s&amp;e=%s&amp;s=%s' % h.get_wms_info_extent(pkg_dict) if h.get_wms_info_extent(pkg_dict) else ''}}" class="btn btn-default {{if_(small,'btn-mini','')}} btn-info btn-preview preview-now"><i class="icon-map-marker"></i>&nbsp; Preview on Map</a>
+    <a href="/data/map-preview?{{h.get_wms_info_urls(pkg_dict)}}{{'&amp;n=%s&amp;w=%s&amp;e=%s&amp;s=%s' % h.get_wms_info_extent(pkg_dict) if h.get_wms_info_extent(pkg_dict) else ''}}" class="btn btn-default {{if_(small,'btn-mini','')}} btn-info btn-preview preview-now"><i class="fa fa-map-marker"></i>&nbsp; Preview on Map</a>
 {% endmacro %}
 
 {% macro package_list_from_dict(packages,mini=False) %}
@@ -249,12 +249,12 @@
                      <span
                           class="preview-add js-dataset-{{package.id}}-add"
                           style="{{if_(in_basket,'display: none;')}}">
-                            <button data-id="{{package.id}}" class="btn btn-default btn-mini btn-info btn-preview btn-basket"><i class="icon-shopping-cart"></i>&nbsp; Add to Preview List</button>
+                            <button data-id="{{package.id}}" class="btn btn-default btn-mini btn-info btn-preview btn-basket"><i class="fa fa-shopping-basket"></i>&nbsp; Add to Preview List</button>
                      </span>
                      <span
                           class="preview-remove js-dataset-{{package.id}}-remove"
                           style="{{if_(not in_basket,'display: none;')}}">
-                          <button data-id="{{package.id}}" class="btn btn-danger btn-mini btn-preview btn-basket"><i class="icon-shopping-cart"></i>&nbsp; Remove from List</button>
+                          <button data-id="{{package.id}}" class="btn btn-danger btn-mini btn-preview btn-basket"><i class="fa fa-shopping-basket"></i>&nbsp; Remove from List</button>
                      </span>
                  </div>
                {% endif %}
@@ -284,7 +284,7 @@
           <div class="facet-option facet-option-selected">
             <a href="{{link}}">
               <div class="facet-kill pull-right">
-                <i class="icon-large icon-remove-sign"></i>
+                <i class="fa fa-lg fa-minus"></i>
               </div>
               <span class="{{if_(tooltip,'js-tooltip', '')}}" data-original-title="{{tooltip}}" data-placement="right">
                 {{text|escape}}
@@ -308,10 +308,10 @@
         {% if more_button and unselected|length>5 %}
           <a id="{{more_button}}" class="facet-expand-collapse" href="#">
             <div class="expander">
-              <i class="icon-double-angle-down"></i>&nbsp; more &nbsp;<i class="icon-double-angle-down"></i>
+              <i class="fa fa-angle-double-down"></i>&nbsp; more &nbsp;<i class="fa fa-angle-double-down"></i>
             </div>
             <div class="collapser">
-              <i class="icon-double-angle-up"></i>&nbsp; less &nbsp;<i class="icon-double-angle-up"></i>
+              <i class="fa fa-angle-double-up"></i>&nbsp; less &nbsp;<i class="fa fa-angle-double-up"></i>
             </div>
           </a>
         {% endif %}
@@ -327,7 +327,7 @@
     <div class="facet-filters">
       <div class="visible-xs visible-sm">
         <a href="#" class="hide-facets">
-          <i class="icon-remove-circle icon-4x"></i>
+          <i class="fa fa-4x fa-minus-circle"></i>
         </a>
       </div>
       {{facet_box(

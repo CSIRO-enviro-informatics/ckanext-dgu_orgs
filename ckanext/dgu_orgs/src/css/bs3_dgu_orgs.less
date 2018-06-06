@@ -1,3 +1,5 @@
+@import "elements.less";
+
 /* Search box DGU-style */
 .search-area .left {
   width: 73%;
@@ -332,3 +334,127 @@ body.controller-organisation.action-read {
 .dgu-pagination {
  text-align:center
 }
+
+/*  Dropdown buttons in the top right corner of organisations */
+.dropdown-buttons {
+  float: right;
+  .dropdown-menu {
+    width: 450px;
+    left: auto;
+    padding: 20px;
+    right: 0;
+    &.panel {
+      padding: 0;
+    }
+    .panel-heading {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    @media(max-width: 500px) {
+      width: 350px;
+      padding: 10px;
+    }
+    @media(max-width: 767px) {
+      right: inherit;
+      left: 0;
+    }
+  }
+  @media(max-width: 767px) {
+    float: none;
+    margin-bottom: 10px;
+  }
+  .dropdown-button {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    margin-left: 12px;
+    color: #999;
+    &:hover {
+      text-decoration: none;
+      color: #333;
+    }
+    .dropdown-chevron {
+      border: 6px solid transparent;
+      width: 0;
+      height: 0;
+      margin-left: 8px;
+      margin-top: 2px;
+    }
+    &:hover {
+      .dropdown-chevron          { border-top-color: #000; }
+      .dropdown-chevron.disabled { border-top-color: transparent; }
+    }
+  }
+  .dropdown {
+    /* IE7 will render menus beneath content unless relative item has z-index */
+    z-index: 5;
+    &.open a.dropdown-button {
+      text-decoration: none;
+      color: #000;
+    }
+    li {
+      &:hover {
+        a {
+          background: none !important;
+          color: auto !important;
+        }
+      }
+      a {
+        display: inline !important;
+        padding: 0 !important;
+        &:hover {
+          text-decoration: underline !important;
+        }
+      }
+    }
+    /** Offset the dropdown menus **/
+    &:nth-child(2) {   .dropdown-menu { margin-left: -40px; }   }
+    &:nth-child(3) {   .dropdown-menu { margin-left: -80px; }   }
+    &:nth-child(4) {   .dropdown-menu { margin-left: -120px; }   }
+    &:nth-child(5) {   .dropdown-menu { margin-left: -160px; }   }
+  }
+  .rss-link {
+    padding: 3px 5px 2px 5px;
+    vertical-align: top;
+    border-radius: 3px;
+    &:hover {
+      color: #fff;
+      background: #e75e00;
+    }
+  }
+  .history-link {
+    padding: 3px 5px 2px 5px;
+    vertical-align: top;
+    border-radius: 3px;
+    &:hover {
+      color: #fff;
+      background: #cc0033;
+    }
+  }
+}
+
+
+/* Autocomplete dialog (from jquery-ui) */
+/* ------------------------------------ */
+ul.ui-autocomplete {
+    .box-shadow(0 2px 9px #777);
+    li a {
+        font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: #555;
+        font-size: 13px;
+        &:hover {
+            cursor: pointer;
+        }
+        &.ui-state-hover{
+            background: #9D2;
+            border-color: #690;
+        }
+    }
+}
+
+/* This stuff should go in our theme */
+img.icon-img {
+ max-width:none;
+ vertical-align:middle;
+}
+

@@ -12,7 +12,7 @@
     <div class="dropdown-buttons">
       <span class="dropdown">
         <a href="#" class="js-tooltip dropdown-button" data-placement="top" data-delay="300" data-toggle="dropdown" title="" data-original-title="Contact&nbsp;Details">
-          <i class="icon-envelope icon-2x"></i>
+          <i class="fa fa-2x fa-envelope"></i>
           <div class="dropdown-chevron"></div>
         </a>
         <div class="panel panel-default dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -40,7 +40,7 @@
       </span>
       <span class="dropdown js-trigger-organisation-scroll">
         <a href="#" class="js-tooltip dropdown-button" data-placement="top" data-delay="300" data-toggle="dropdown" title="" data-original-title="Organization&nbsp;Hierarchy">
-          <i class="icon-sitemap icon-2x"></i>
+          <i class="fa fa-2x fa-sitemap"></i>
           <div class="dropdown-chevron"></div>
         </a>
         <div class="dropdown-menu panel panel-default" role="menu" aria-labelledby="dLabel">
@@ -72,7 +72,7 @@
       </span>
       <span class="dropdown">
         <a href="#" class="js-tooltip dropdown-button" data-placement="top" data-delay="300" data-toggle="dropdown" title="" data-original-title="Reports&nbsp;&amp;&nbsp;Analytics">
-          <i class="icon-bar-chart icon-2x"></i>
+          <i class="fa fa-2x fa-bar-chart-o"></i>
           <div class="dropdown-chevron"></div>
         </a>
         <div class="panel panel-default dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -98,20 +98,20 @@
         {% with %}
         {% set is_an_official = h.is_an_official() %}
         <a href="#" class="js-tooltip dropdown-button" data-placement="top" data-delay="300" data-toggle="dropdown" title="" data-original-title="Administrators">
-          <i class="icon-group icon-2x"></i>
+          <i class="fa fa-2x fa-group"></i>
           <div class="dropdown-chevron"></div>
         </a>
         <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           <b>Administrators:</b>
           <ul>
-            {% set count = c.administrators|length %}
+            {% set admin_count = c.administrators|length %}
             {% if is_an_official %}
               {% for admin_id, admin, role in c.administrators %}
                 <li>{{ h.linked_user(admin_id, maxlength=40) }}&nbsp;({{ role }})</li>
               {% endfor %}
             {% else %}
-              {% if count %}
-                <li>{{ count }} administrator{{ h.pluralise_text(count) }}</li>
+              {% if admin_count %}
+                <li>{{ admin_count }} administrator{{ h.pluralise_text(admin_count) }}</li>
               {% else %}
                 <li>No-one assigned</li>
               {% endif %}
@@ -119,14 +119,14 @@
           </ul>
           <b>Editors:</b>
           <ul>
-            {% set count = c.editors|length %}
+            {% set editor_count = c.editors|length %}
             {% if is_an_official %}
               {% for editor_id, editor, role in c.editors %}
                 <li>{{ h.linked_user(editor_id, maxlength=35) }}&nbsp;({{ role }})</li>
               {% endfor %}
             {% else %}
-              {% if count %}
-                <li>{{ count }} editor{{ h.pluralise_text(count) }}</li>
+              {% if editor_count %}
+                <li>{{ editor_count }} editor{{ h.pluralise_text(editor_count) }}</li>
               {% else %}
                 <li>No-one assigned</li>
               {% endif %}
@@ -134,7 +134,7 @@
             {% if not c.userobj in c.administrators and not c.userobj in c.editors %}
               <li>
                 <b><a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.organisation:OrganisationController', action='apply', id=c.group.name) }}">
-                  <u>Request to become an {% if not c.administrators.count() %}Admin/{% endif %}Editor</u> &nbsp;&raquo;
+                  <u>Request to become an {% if editor_count %}Admin/{% endif %}Editor</u> &nbsp;&raquo;
                 </a></b>
               </li>
             {% endif %}
@@ -144,7 +144,7 @@
       </span>
       {% endif %}
       <a class="js-tooltip dropdown-button rss-link" data-placement="top" title="" data-delay="300" data-original-title="RSS&nbsp;Feed" href="{{ h.url(controller='feed', action='organization', id=c.group['name']) }}">
-        <i class="icon-rss icon-2x"></i>
+        <i class="fa fa-2x fa-rss"></i>
       </a>
     </div>
     <h1>{{ c.group.display_name }}
@@ -195,23 +195,23 @@
               <ul class="administrator-tools">
                 {% if organizationupdate %}
                   <li>
-                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.organisation:OrganisationController', action='edit', id=c.group.name) }}"><span class="wrap-icon"><i class="icon-edit"></i> </span>Edit organisation properties &raquo;</a>
+                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.organisation:OrganisationController', action='edit', id=c.group.name) }}"><span class="wrap-icon"><i class="fa fa-pencil"></i> </span>Edit organisation properties &raquo;</a>
                   </li>
                   <li>
-                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.inventory:InventoryController', action='edit',id=c.group.name) }}"><span class="wrap-icon"><i class="icon-archive"></i> </span>Manage unpublished datasets &raquo;</a>
+                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.inventory:InventoryController', action='edit',id=c.group.name) }}"><span class="wrap-icon"><i class="fa fa-archive"></i> </span>Manage unpublished datasets &raquo;</a>
                   </li>
                 {% endif %}
                 {% if packagecreate %}
                   <li>
-                    <a href="{{ h.url_for('dataset_new') }}?owner_org={{ c.group.id }}"><span class="wrap-icon"><i class="icon-plus-sign-alt"></i> </span>Add a new dataset &raquo;</a>
+                    <a href="{{ h.url_for('dataset_new') }}?owner_org={{ c.group.id }}"><span class="wrap-icon"><i class="fa fa-plus-square-o"></i> </span>Add a new dataset &raquo;</a>
                   </li>
                   <li>
-                    <a href="/organogram/manage/{{ c.group.name }}"><span class="wrap-icon"><i class="icon-group"></i> </span>Organogram publication &raquo;</a>
+                    <a href="/organogram/manage/{{ c.group.name }}"><span class="wrap-icon"><i class="fa fa-group"></i> </span>Organogram publication &raquo;</a>
                   </li>
                 {% endif %}
                 {% if organizationupdate %}
                   <li>
-                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.organisation:OrganisationController', action='users', id=c.group.name) }}"><span class="wrap-icon"><i class="icon-unlock-alt"></i> </span>Edit user permissions &raquo;</a>
+                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.organisation:OrganisationController', action='users', id=c.group.name) }}"><span class="wrap-icon"><i class="fa fa-unlock-alt"></i> </span>Edit user permissions &raquo;</a>
                   </li>
                 {% endif %}
               </ul>

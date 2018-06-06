@@ -505,9 +505,9 @@ def render_stars(stars, reason, last_updated):
     '''Returns HTML to show a number of stars out of five, with a reason and
     date, plus a tooltip describing the levels.'''
     if stars==0:
-        stars_html = 5 * '<i class="icon-star-empty"></i>'
+        stars_html = 5 * '<i class="fa fa-star-o"></i>'
     else:
-        stars_html = (stars or 0) * '<i class="icon-star"></i>'
+        stars_html = (stars or 0) * '<i class="fa fa-star-o"></i>'
 
     tooltip = t.literal('<div class="star-rating-reason"><b>Reason: </b>%s</div>' % escape(reason)) if reason else ''
     for i in range(5,0,-1):
@@ -926,7 +926,7 @@ def get_package_fields(package, package_dict, pkg_extras, dataset_was_harvested,
     sla = package_dict.get('sla')
     if sla:
         if sla == 'true':
-            sla = Markup('<span class="js-tooltip" title="%s" data-container="body" >SLA Agreed <i class="icon-info-sign"></i></span>' % escape(get_sla()))
+            sla = Markup('<span class="js-tooltip" title="%s" data-container="body" >SLA Agreed <i class="fa fa-info-circle"></i></span>' % escape(get_sla()))
 
     field_value_map = {
         # field_name : {display info}
