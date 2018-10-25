@@ -10,34 +10,6 @@
 
 {% block primary_content_inner %}
     <div class="dropdown-buttons">
-      <span class="dropdown">
-        <a href="#" class="js-tooltip dropdown-button" data-placement="top" data-delay="300" data-toggle="dropdown" title="" data-original-title="Contact&nbsp;Details">
-          <i class="fa fa-2x fa-envelope"></i>
-          <div class="dropdown-chevron"></div>
-        </a>
-        <div class="panel panel-default dropdown-menu" role="menu" aria-labelledby="dLabel">
-          <div class="panel-heading">Contacts</div>
-          <div class="panel-body">
-            <b>Enquiries:</b>
-            <ul style="margin-bottom: 5px;">
-              {{ c.group_extras.get('contact-name') }}
-              {{ m.contact_details(c.group_extras.get('contact-name'),
-                                   c.group_extras.get('contact-email'),
-                                   c.group_extras.get('contact-phone'),
-                                   c.group_extras.get('website-url'),
-                                   c.group_extras.get('website-name')) }}
-            </ul>
-            <b class="js-tooltip" title="Use the Freedom of Information Act to request more information from the body holding the data">FOI requests</b>:
-            <ul style="margin-bottom: 0;">
-              {{ c.group_extras.get('foi-name') }}
-              {{ m.contact_details(c.group_extras.get('foi-name'),
-                                   c.group_extras.get('foi-email'),
-                                   c.group_extras.get('foi-phone'),
-                                   c.group_extras.get('foi-web'), '') }}
-            </ul>
-          </div>
-        </div>
-      </span>
       <span class="dropdown js-trigger-organisation-scroll">
         <a href="#" class="js-tooltip dropdown-button" data-placement="top" data-delay="300" data-toggle="dropdown" title="" data-original-title="Organization&nbsp;Hierarchy">
           <i class="fa fa-2x fa-sitemap"></i>
@@ -70,29 +42,7 @@
           </div>
         </div>
       </span>
-      <span class="dropdown">
-        <a href="#" class="js-tooltip dropdown-button" data-placement="top" data-delay="300" data-toggle="dropdown" title="" data-original-title="Reports&nbsp;&amp;&nbsp;Analytics">
-          <i class="fa fa-2x fa-bar-chart-o"></i>
-          <div class="dropdown-chevron"></div>
-        </a>
-        <div class="panel panel-default dropdown-menu" role="menu" aria-labelledby="dLabel">
-          <div class="panel-heading">Reports</div>
-          <div class="panel-body">
-            <ul>
-              <li><a href="{{ h.url_for('report-org', report_name='broken-links', organization=c.group.name) }}">
-              Broken links report</a></li>
 
-              <li><a href="{{ h.url_for('report-org', report_name='openness', organization=c.group.name) }}">
-              Openness report</a></li>
-
-              <li><a href="/comments/organisation/{{ c.group.id }}">Comments</a></li>
-
-              <li><a href="/data/site-usage/organisation/{{ c.group.name }}">Usage</a></li>
-              <li><a href="{{ h.url_for('report-org', report_name='organisation-activity', organization=c.group.name) }}">Activity</a></li>
-            </ul>
-          </div>
-        </div>
-      </span>
       {% if c.userobj %}
       <span class="dropdown">
         {% with %}
@@ -186,40 +136,7 @@
           {{ h.render_markdown(c.description or '') }}
         </div>
       </div>
-      {% if adminmode %}
-      <div class="span4">
-        <div class="admin-toolkit">
-          <div class="panel panel-info">
-            <div class="panel-heading" style="font-weight: bold;">Administrator Tools</div>
-            <div class="panel-body">
-              <ul class="administrator-tools">
-                {% if organizationupdate %}
-                  <li>
-                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.organisation:OrganisationController', action='edit', id=c.group.name) }}"><span class="wrap-icon"><i class="fa fa-pencil"></i> </span>Edit organisation properties &raquo;</a>
-                  </li>
-                  <li>
-                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.inventory:InventoryController', action='edit',id=c.group.name) }}"><span class="wrap-icon"><i class="fa fa-archive"></i> </span>Manage unpublished datasets &raquo;</a>
-                  </li>
-                {% endif %}
-                {% if packagecreate %}
-                  <li>
-                    <a href="{{ h.url_for('dataset_new') }}?owner_org={{ c.group.id }}"><span class="wrap-icon"><i class="fa fa-plus-square-o"></i> </span>Add a new dataset &raquo;</a>
-                  </li>
-                  <li>
-                    <a href="/organogram/manage/{{ c.group.name }}"><span class="wrap-icon"><i class="fa fa-group"></i> </span>Organogram publication &raquo;</a>
-                  </li>
-                {% endif %}
-                {% if organizationupdate %}
-                  <li>
-                    <a href="{{ h.url_for(controller='ckanext.dgu_orgs.controllers.organisation:OrganisationController', action='users', id=c.group.name) }}"><span class="wrap-icon"><i class="fa fa-unlock-alt"></i> </span>Edit user permissions &raquo;</a>
-                  </li>
-                {% endif %}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endif %}
+
     </div>
 
     {% call m.search_form(

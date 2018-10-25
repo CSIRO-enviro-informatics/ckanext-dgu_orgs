@@ -12,18 +12,7 @@
   {% set closed_organisation_ids = h.closed_organisation_ids() %}
 
   <h1>Organisations</h1>
-  <p>Datasets are submitted on CKAN by a range of organisations, mainly from the public sector. On this page you can browse and search for them by name or place in a notional hierarchy.</p>
-  {% if h.check_access('organization_create', {}) %}
-    <div class="panel panel-info">
-      <div class="panel-heading"><strong>Add New Organization</strong></div>
-      <div class="panel-body"><a href="{{ h.url_for('organisation_new') }}">Add Organisation</a></div>
-    </div>
-  {% elif c.userobj %}
-    <div class="panel panel-info">
-      <div class="panel-heading"><strong>Adding New Organizations</strong></div>
-      <div class="panel-body">If you are from a public sector body not listed below, please <a href="/contact/6">get in touch with Cabinet Office data.gov.uk team</a> to request the addition of your organisation.</div>
-    </div>
-  {% endif %}
+  <p>On this page you can browse for digital assets and search for them by name or place in a notional hierarchy.</p>
   <div class="search-area" style="margin-top: 20px; margin-bottom: 30px;">
     <div class="clearfix dgu-equal-height" data-selector=".auto-height">
       <div class="left">
@@ -32,7 +21,7 @@
             <input id="js-search" class="form-control" type="text" name="q" value="{{c.q}}" results="0" placeholder="Start typing a name..." />
             <span class="input-group-btn">
               <button type="submit" class="btn btn-default">
-                <img src="/images/icon_search_333_50.png" class="icon-img" style="height: 25px;"/>
+                <img src="/images/icon_search_333_50.png" class="icon-img" style="height: 25px; width: 25px"/>
               </button>
             </span>
           </div>
