@@ -538,6 +538,8 @@ body.controller-organisation.action-read .organisation-mini-tree {
   background: #fff;
   padding: 6px;
   min-height: 90px;
+    border: 1px solid #a2a2a2;
+    border-right-width: 0;
 }
 @media (max-width: 767px) {
   .search-area .left .left-inner {
@@ -604,12 +606,22 @@ body.controller-organisation.action-read .organisation-mini-tree {
 .search-area .right {
   float: left;
 }
+.search-area .form-search{
+   margin: 0px;
+}
+
+.search-area .form-search .input-group .form-control {
+   width: 80%;
+}
+
 .search-area .right .right-inner {
   background: #a2a2a2;
   color: #fff;
   position: relative;
   min-height: 90px;
   padding: 6px;
+    border: 1px solid #a2a2a2;
+    border-left-width: 0;
 }
 @media (max-width: 767px) {
   .search-area .right .right-inner {
