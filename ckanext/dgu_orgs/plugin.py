@@ -77,14 +77,15 @@ class DGUOrgsPlugin(SingletonPlugin):
                     # made. In this case, there will be no flash message
                     # required anyway.
                     return
-                msg = "You can now <a href='%s'>apply for organisation access</a>" % url
-                try:
-                    flash_notice(_(msg), allow_html=True)
-                except TypeError:
+                return
+                #msg = "You can now <a href='%s'>apply for organisation access</a>" % url
+                #try:
+                #    flash_notice(_(msg), allow_html=True)
+                #except TypeError:
                     # Raised when there is no session registered, and this is
                     # the case when using the paster commands.
                     #log.debug('Did not add a flash message due to a missing session: %s' % msg)
-                    pass
+                #    pass
 
     def before_map(self, map):
         map.redirect('/organization/{url:.*}', '/organisation/{url}')
