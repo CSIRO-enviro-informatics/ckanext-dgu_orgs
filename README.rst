@@ -36,6 +36,7 @@ ckanext-dgu_orgs
    What does it do? What features does it have?
    Consider including some screenshots or embedding a video!
 
+Renders an CSIRO organizational hierarchy tree in CKAN
 
 ------------
 Requirements
